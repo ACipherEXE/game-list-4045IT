@@ -16,24 +16,31 @@ public class Xbox {
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getGameName() {
 		return gameName;
 	}
+	
 	public void setGameName(String gameName) {
 		this.gameName = gameName;
 	}
+	
 	public String getPrice() {
 		return price;
 	}
+	
 	public void setPrice(String price) {
 		this.price = price;
 	}
+	
 	public String getConsole() {
 		return console;
 	}
+	
 	public void setConsole(String console) {
 		this.console = console;
 	}
