@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.gameList.gamelist.model.Nintendo;
 import com.gameList.gamelist.model.PC;
 import com.gameList.gamelist.model.Playstation;
+import com.gameList.gamelist.model.Xbox;
 import com.gameList.gamelist.model.Platform;
 
 @Controller
@@ -26,6 +27,7 @@ public class GameListController{
 	private List<Nintendo> listNintendo;
 	private List<PC> listPC;
 	private List<Playstation> listPlaystation;
+	private List<Xbox> listXbox;
 	
 	@PostConstruct
 	private void loadData() {
@@ -71,6 +73,16 @@ public class GameListController{
 		listPlaystation.add(playstationGame1);
 		listPlaystation.add(playstationGame2);
 		listPlaystation.add(playstationGame3);
+		
+		//Xbox
+		listXbox = new ArrayList<Xbox>();
+		Xbox xboxGame1 = new Xbox(1, "Halo Infinite", "59.99", "Series X/S");
+		Xbox xboxGame2 = new Xbox(2, "Sunset Overdrive", "19.99", "Xbox One");
+		Xbox xboxGame3 = new Xbox(3, "Forza Horizon 5", "59.99", "Series X/S");
+		
+		listXbox.add(xboxGame1);
+		listXbox.add(xboxGame2);
+		listXbox.add(xboxGame3);
 	}
 	
 	@GetMapping("/platform")
@@ -99,5 +111,12 @@ public class GameListController{
 		theModel.addAttribute("playstation", listPlaystation);
 		
 		return "list-playstation";
+	}
+	
+	@GetMapping("/xbox")
+	public String listXbox(Model theModel) {
+		theModel.addAttribute("xbox", listXbox);
+		
+		return "list-xbox";
 	}
 }
