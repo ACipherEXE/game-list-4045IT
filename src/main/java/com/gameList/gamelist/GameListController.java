@@ -22,23 +22,17 @@ public class GameListController{
 	/**
 	 * This will be used to search for games
 	 */
-	private List<Platform> platformList;
-	
 	private List<Nintendo> listNintendo;
-<<<<<<< HEAD
 	private List<Platform> platformList;
 	private List<Xbox> xbox_list;
-=======
 	private List<PC> listPC;
 	private List<Playstation> listPlaystation;
->>>>>>> ea7d6c54ea8a4464f9686021d410c2d4b0ed8acb
 	
 	@PostConstruct
 	private void loadData() {
 		// Platforms
 		platformList = new ArrayList<Platform>();
 		
-<<<<<<< HEAD
 		Platform platform1 = new Platform(1,"pc");
 		Platform platform2 = new Platform(2,"xbox");
 		Platform platform3 = new Platform(3,"playstation");
@@ -50,39 +44,15 @@ public class GameListController{
 		Xbox xbox4 = new Xbox(1,"Halo 4", "xbox");
 		Xbox xbox5 = new Xbox(1,"Halo 5", "xbox");
 		
-		listNintendo = new ArrayList();
-		
-		platformList = new ArrayList();
-		
 		xbox_list = new ArrayList();
-		
-		listNintendo.add(game1);
-		listNintendo.add(game2);
-		listNintendo.add(game3);
-=======
-		Platform platform1 = new Platform(1, "pc");
-		Platform platform2 = new Platform(2, "xbox");
-		Platform platform3 = new Platform(3, "playstation");
-		Platform platform4 = new Platform(4, "nintendo");
->>>>>>> ea7d6c54ea8a4464f9686021d410c2d4b0ed8acb
-		
-		platformList.add(platform1);
-		platformList.add(platform2);
-		platformList.add(platform3);
-		platformList.add(platform4);
-		
-<<<<<<< HEAD
+
 		 xbox_list.add(xbox1);
 		 xbox_list.add(xbox2);
 		 xbox_list.add(xbox3);
 		 xbox_list.add(xbox4);
 		 xbox_list.add(xbox5);
-	}
-	@GetMapping("/nintendo")
-	public String listNintendo(Model theModel) {
-		theModel.addAttribute("nintendo", listNintendo);
-		return"list-nintendo";
-=======
+	
+		
 		// Nintendo
 		listNintendo = new ArrayList<Nintendo>();
 		Nintendo nintendoGame1 = new Nintendo(1, "Mario Party", "60.00", "N64");
@@ -112,7 +82,6 @@ public class GameListController{
 		listPlaystation.add(playstationGame1);
 		listPlaystation.add(playstationGame2);
 		listPlaystation.add(playstationGame3);
->>>>>>> ea7d6c54ea8a4464f9686021d410c2d4b0ed8acb
 	}
 	
 	@GetMapping("/platform")
