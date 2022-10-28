@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gameList.gamelist.model.Nintendo;
 import com.gameList.gamelist.model.Platform;
+import com.gameList.gamelist.model.Xbox;
 
 @Controller
 @RequestMapping("/game-list")
@@ -22,6 +23,7 @@ public class GameListController{
 	
 	private List<Nintendo> listNintendo;
 	private List<Platform> platformList;
+	private List<Xbox> xbox_list;
 	
 	@PostConstruct
 	private void loadData() {
@@ -34,9 +36,17 @@ public class GameListController{
 		Platform platform3 = new Platform(3,"playstation");
 		Platform platform4 = new Platform(4,"nintendo");
 		
+		Xbox xbox1 = new Xbox(1,"Halo", "xbox");
+		Xbox xbox2 = new Xbox(1,"Halo 2", "xbox");
+		Xbox xbox3 = new Xbox(1,"Halo 3", "xbox");
+		Xbox xbox4 = new Xbox(1,"Halo 4", "xbox");
+		Xbox xbox5 = new Xbox(1,"Halo 5", "xbox");
+		
 		listNintendo = new ArrayList();
 		
 		platformList = new ArrayList();
+		
+		xbox_list = new ArrayList();
 		
 		listNintendo.add(game1);
 		listNintendo.add(game2);
@@ -46,6 +56,12 @@ public class GameListController{
 		platformList.add(platform2);
 		platformList.add(platform3);
 		platformList.add(platform4);
+		
+		 xbox_list.add(xbox1);
+		 xbox_list.add(xbox2);
+		 xbox_list.add(xbox3);
+		 xbox_list.add(xbox4);
+		 xbox_list.add(xbox5);
 	}
 	@GetMapping("/nintendo")
 	public String listNintendo(Model theModel) {
@@ -57,5 +73,10 @@ public class GameListController{
 	public String platform(Model theModel) {
 		theModel.addAttribute("platform", platformList);
 		return"platforms";
+	}
+	@GetMapping("/xbox")
+	public String xbox_list(Model theModel) {
+		theModel.addAttribute("xbox",  xbox_list);
+		return" xbox_list";
 	}
 }
