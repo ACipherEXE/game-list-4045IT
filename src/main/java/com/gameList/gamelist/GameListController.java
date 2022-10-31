@@ -1,9 +1,12 @@
 package com.gameList.gamelist;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +17,16 @@ import com.gameList.gamelist.model.PC;
 import com.gameList.gamelist.model.Playstation;
 import com.gameList.gamelist.model.Platform;
 import com.gameList.gamelist.model.Xbox;
+import com.gameList.service.INintendoService;
+
+
 
 @Controller
 @RequestMapping("/game-list")
 public class GameListController{
+	
+	@Autowired
+	private INintendoService nintendoServiceStub;
 	
 	/**
 	 * This will be used to search for games
@@ -54,14 +63,7 @@ public class GameListController{
 	
 		
 		// Nintendo
-		listNintendo = new ArrayList<Nintendo>();
-		Nintendo nintendoGame1 = new Nintendo(1, "Mario Party", "60.00", "N64");
-		Nintendo nintendoGame2 = new Nintendo(2, "Mario Party 2", "60.00", "N64");
-		Nintendo nintendoGame3 = new Nintendo(3, "Mario Party 3", "60.00", "N64");		
-		
-		listNintendo.add(nintendoGame1);
-		listNintendo.add(nintendoGame2);
-		listNintendo.add(nintendoGame3);
+		listNintendo = nintendoServiceStub.nintendoListCreator();
 		
 		// PC
 		listPC = new ArrayList<PC>();
