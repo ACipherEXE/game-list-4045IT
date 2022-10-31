@@ -1,10 +1,10 @@
 package com.gameList.service;
 
+import java.util.ArrayList;
+
 import com.gameList.gamelist.model.PC;
 
 public interface IPCService {
 
-	PC fetchById(int id);
-	
-	void save(PC pc);
+	ArrayList<PC> pcListCreator();
 }

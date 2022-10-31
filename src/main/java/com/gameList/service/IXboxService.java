@@ -1,10 +1,10 @@
 package com.gameList.service;
 
+import java.util.ArrayList;
+
 import com.gameList.gamelist.model.Xbox;
 
 public interface IXboxService {
 
-	Xbox fetchById(int id);
-	
-	void save(Xbox xbox);
+	ArrayList<Xbox> xboxListCreator();
 }
