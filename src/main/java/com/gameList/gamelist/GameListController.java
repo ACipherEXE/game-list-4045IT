@@ -44,7 +44,7 @@ public class GameListController{
 		Xbox xbox4 = new Xbox(1,"Halo 4", "xbox");
 		Xbox xbox5 = new Xbox(1,"Halo 5", "xbox");
 		
-		xbox_list = new ArrayList();
+		xbox_list = new ArrayList<Xbox>();
 
 		 xbox_list.add(xbox1);
 		 xbox_list.add(xbox2);
