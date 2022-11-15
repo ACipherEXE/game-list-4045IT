@@ -8,13 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="game_list")
+@Table(name="gamelist")
 public class GameList {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
-	@Column(name="gameName")
+	@Column(name="gamename")
 	private String gameName;
 	@Column(name="year")
 	private String year;
