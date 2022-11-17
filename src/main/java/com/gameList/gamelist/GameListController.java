@@ -7,6 +7,8 @@ import javax.annotation.PostConstruct;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gameList.gamelist.model.Nintendo;
@@ -14,6 +16,7 @@ import com.gameList.gamelist.model.PC;
 import com.gameList.gamelist.model.Playstation;
 import com.gameList.gamelist.model.Platform;
 import com.gameList.gamelist.model.Xbox;
+import com.soit.soitfaculty.entity.Faculty;
 
 @Controller
 @RequestMapping("/game-list")
@@ -109,6 +112,19 @@ public class GameListController{
 		listPlaystation.add(playstationGame3);
 	}
 	
+	
+	@GetMapping("/viewAddForm")
+	public String viewAddForm(Model theModel) {
+		
+		GameList theGameList = new GameList();
+		theModel.addAttribute("gamelist", theGameList);
+		
+		return "gamelist/list-nintendo";
+		
+		
+	}
+	
+	
 	@GetMapping("/platform")
 	public String platform(Model theModel) {
 		theModel.addAttribute("platform", platformList);
@@ -140,5 +156,21 @@ public class GameListController{
 	public String xbox_list(Model theModel) {
 		theModel.addAttribute("xbox",  xbox_list);
 		return" xbox_list";
+	}
+	
+	
+
+	@PostMapping("/save")
+	public String saveFaculty(@ModelAttribute("faculty") GameList theGameList) {
+		
+		
+		
+		//Register the Faculty
+		GameList.save(theGameList);
+		
+		
+		//Block duplicates submission for accidental refresh
+		return "redirect:/Faculties/list";
+		
 	}
 }
