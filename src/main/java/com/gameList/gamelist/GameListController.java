@@ -28,6 +28,7 @@ public class GameListController{
 	private List<PC> listPC;
 	private List<Playstation> listPlaystation;
 	
+	
 	@PostConstruct
 	private void loadData() {
 		//Platforms
