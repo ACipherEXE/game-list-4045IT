@@ -53,7 +53,7 @@ public class GameListController{
 	 * SETUP NEEDED:
 	 * Note: it has the same admin and password we used in class
 	 * 1. On phpMyAdmin you will have to make a database called "game_list" and a table called "gamelist"
-	 * 2. this table will have 4 columns id(primary key + auto increment), gamename, console and year
+	 * 2. this table will have 5 columns id(primary key + auto increment), gamename, console, year and description
 	 * 3. add any information you want on on these columns on the insert menu on the top right on the phpMyAdmin
 	 * @param theModel
 	 * @return a list of all games in the database
