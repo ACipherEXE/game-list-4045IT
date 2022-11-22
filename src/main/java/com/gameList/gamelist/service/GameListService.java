@@ -7,5 +7,5 @@ import com.gameList.gamelist.entity.GameList;
 public interface GameListService {
 	public List<GameList> findAll();
 	public GameList findById(int theId);
-	
+	public GameList getConsole(String consolee);
 }
