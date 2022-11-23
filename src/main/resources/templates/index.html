@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	
+<Version>Video Game Directory</Version>
+</head>
+
+
+
+<body>
+<div class="container">
+
+
+	<h4>SChool of IT Video Game Directory</h4>
+	<hr>
+	
+	<!-- Create a button to Add New Video Game -->
+	<a th:href="@{/VideoGames/viewAddForm}" class="btn btn-dark">Add New Video Game</a>
+	
+	<table class="table table-bordered">
+		<thead>
+			<tr class="bg-danger">
+				<th>Name And Type</th>
+				<th>Year</th>
+				<th>Version</th>
+				<th>Supplier</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr th:each="theVideo Game : ${VideoGames}">
+				<td th:text="${theVideoGame.nameAndType}" />
+				<td th:text="${theVideoGame.year}" />
+				<td th:text="${theVideoGame.Version}" />
+				<td th:text="${theVideoGame.Supplier}" />
+			</tr>
+		</tbody>
+
+	</table>
+
+</div>
+</body>
+</html>
