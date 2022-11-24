@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.gameList.gamelist.dao.GameListRepository;
 import com.gameList.gamelist.entity.GameList;
+
 @Service
 public class GameListServiceImpl implements GameListService{
 	
@@ -43,5 +44,17 @@ public class GameListServiceImpl implements GameListService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public void save(GameList theGamelist) {
+		gameListRepository.save(theGamelist);
+
+	}
+	
+	@Override
+	public void deletebyId(int theId) {
+		gameListRepository.deleteById(theId);
+	}
+
 
 }

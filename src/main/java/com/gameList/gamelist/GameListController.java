@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.gameList.gamelist.entity.GameList;
 import com.gameList.gamelist.model.Nintendo;
@@ -16,6 +19,7 @@ import com.gameList.gamelist.model.Playstation;
 import com.gameList.gamelist.model.Platform;
 import com.gameList.gamelist.model.Xbox;
 import com.gameList.gamelist.service.GameListService;
+
 
 @Controller
 @RequestMapping("/game-list")
@@ -53,7 +57,7 @@ public class GameListController{
 	 * SETUP NEEDED:
 	 * Note: it has the same admin and password we used in class
 	 * 1. On phpMyAdmin you will have to make a database called "game_list" and a table called "gamelist"
-	 * 2. this table will have 4 columns id(primary key + auto increment), gamename, console and year
+	 * 2. this table will have 5 columns id(primary key + auto increment), gamename, console,year and description
 	 * 3. add any information you want on on these columns on the insert menu on the top right on the phpMyAdmin
 	 * @param theModel
 	 * @return a list of all games in the database
@@ -69,6 +73,43 @@ public class GameListController{
 		List<GameList> theGamelist = gameList.findAll();
 		theModel.addAttribute("gamelist", theGamelist);
 		return "list-GameList";
+	}
+	
+	@GetMapping("/viewAddForm")
+	public String  viewAddForm(Model theModel) {
+
+
+		//Model attribute for data binding
+		GameList  theGamelist = new GameList();
+		theModel.addAttribute("gamelist", theGamelist);
+
+		return "games/games-form";
+
+
+	}
+	
+	@PostMapping("/save")
+	public String saveGame(@ModelAttribute ("gamelist") GameList theGamelist) {
+		
+		
+		//Register the faculty
+		gameList.save(theGamelist);
+		
+		//block duplicates submissions for accidental refresh
+		return "redirect:/game-list/list";
+	
+		
+	}
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam("gamelistId") int theId) {
+		
+		//Remove Faculty
+		gameList.deletebyId(theId);
+		
+		//return to faculty directory
+		return "redirect:/game-list/list";
+		
 	}
 	
 }
