@@ -19,7 +19,7 @@ public class GameListServiceImpl implements GameListService{
 	@Override
 	public List<GameList> findAll() {
 		// TODO Auto-generated method stub
-		return gameListRepository.findAll();
+		return gameListRepository.findAllByOrderByGameName();
 	}
 	public List<GameList> findNintendo() {
 		// TODO Auto-generated method stub
