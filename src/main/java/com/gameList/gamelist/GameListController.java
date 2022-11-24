@@ -17,6 +17,7 @@ import com.gameList.gamelist.model.Platform;
 import com.gameList.gamelist.model.Xbox;
 import com.gameList.gamelist.service.GameListService;
 
+
 @Controller
 @RequestMapping("/game-list")
 public class GameListController{
@@ -24,11 +25,8 @@ public class GameListController{
 	/**
 	 * This will be used to search for games
 	 */
-	//private List<Nintendo> listNintendo;
+	
 	private List<Platform> platformList;
-	//private List<Xbox> xbox_list;
-	//private List<PC> listPC;
-	//private List<Playstation> listPlaystation;
 	
 	@PostConstruct
 	private void loadData() {
@@ -53,7 +51,7 @@ public class GameListController{
 	 * SETUP NEEDED:
 	 * Note: it has the same admin and password we used in class
 	 * 1. On phpMyAdmin you will have to make a database called "game_list" and a table called "gamelist"
-	 * 2. this table will have 4 columns id(primary key + auto increment), gamename, console and year
+	 * 2. this table will have 5 columns id(primary key + auto increment), gamename, console, description, and year
 	 * 3. add any information you want on on these columns on the insert menu on the top right on the phpMyAdmin
 	 * @param theModel
 	 * @return a list of all games in the database
@@ -66,9 +64,19 @@ public class GameListController{
 	}
 	@GetMapping("/list")
 	public String listGames(Model theModel) {
-		List<GameList> theGamelist = gameList.findAll();
-		theModel.addAttribute("gamelist", theGamelist);
+		List<GameList> theGameList = gameList.findAll();
+		theModel.addAttribute("gamelist", theGameList);
 		return "list-GameList";
+	}
+	
+	@GetMapping("/nintendoList")
+	public String nintendoList(Model theModel) {
+		// Model Attribute for data binding
+		GameList theGameList = gameList.getConsole("Nintendo");
+		
+		theModel.addAttribute("gamelist", theGameList);
+		
+		return "list-nintendo";
 	}
 	
 }

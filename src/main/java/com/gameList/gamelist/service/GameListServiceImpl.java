@@ -18,30 +18,29 @@ public class GameListServiceImpl implements GameListService{
 
 	@Override
 	public List<GameList> findAll() {
-		// TODO Auto-generated method stub
 		return gameListRepository.findAll();
 	}
 	public List<GameList> findNintendo() {
-		// TODO Auto-generated method stub
 		return gameListRepository.findAll();
 	}
 	public List<GameList> findPC() {
-		// TODO Auto-generated method stub
 		return gameListRepository.findAll();
 	}
 	public List<GameList> findXbox() {
-		// TODO Auto-generated method stub
 		return gameListRepository.findAll();
 	}
 	public List<GameList> findPlaystation() {
-		// TODO Auto-generated method stub
 		return gameListRepository.findAll();
 	}
 
 	@Override
 	public GameList findById(int theId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public GameList getConsole(String console) {
+		return null;
+	}
+
 
 }
