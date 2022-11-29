@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
+<style>
+body{
+	font-family: Arial, Helcetica, sans-serif;
+	font-size: 28px;
+	background: #1b2838;
+	color: #66c0f4;
+}
+
+</style>
 <head>
+<style>
+body{
+	font-family: Arial, Helcetica, sans-serif;
+	font-size: 28px;
+	background: #1b2838;
+	color: #66c0f4;
+}
+
+</style>
 <meta charset="ISO-8859-1">
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -14,9 +32,9 @@
 	crossorigin="anonymous">
 <title>Game Platform</title>
 </head>
-<body>
-	<div class="container">
-		<h4>Select Your Game Platform</h4>
+<body class="bg-dark">
+	<div class="container bg-dark">
+		<h4 class="text-white">Select Your Game Platform</h4>
 		<hr>
 		<div class="row">
 			<div class="col-md-3" th:each="platform : ${ platform }">
