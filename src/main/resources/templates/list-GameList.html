@@ -18,12 +18,16 @@
 	<div class="container text-white">
 		<h4>All Console Games</h4>
 		<hr>
+		<!-- create a button to add new faculty -->
+	<a th:href="@{/game-list/viewAddForm}" class="btn btn-dark"> Add New Console</a>
+	
 		<table class="table table-bordered">
 			<thead>
 				<tr class="bg-danger">
 					<th>Name</th>
 					<th>Console</th>
 					<th>year</th>
+					<th>description</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,6 +35,7 @@
 					<td th:text="${theGameList.gameName}" />
 					<td th:text="${theGameList.console}" />
 					<td th:text="${theGameList.year}" />
+					<td th:text="${theGameList.description}" />
 				</tr>
 			</tbody>
 		</table>
