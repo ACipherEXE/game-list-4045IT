@@ -20,7 +20,7 @@ import com.gameList.gamelist.service.GameListService;
 @Controller
 @RequestMapping("/game-list")
 public class GameListController{
-	
+	// new comment
 	/**
 	 * This will be used to search for games
 	 */
