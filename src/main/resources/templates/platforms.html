@@ -36,11 +36,16 @@ body{
 	<div class="container bg-dark">
 		<h4 class="text-white">Select Your Game Platform</h4>
 		<hr>
+		<a th:href="@{/game-list/viewGameList}" class="btn btn-dark">List of GameList</a>
+		<a th:href="@{/game-list/viewNintendo}" class="btn btn-dark">List of Nintendo</a>
+		<a th:href="@{/game-list/viewPc}" class="btn btn-dark">List of PC</a>
+		<a th:href="@{/game-list/viewPlayStation}" class="btn btn-dark">List of playstation</a>
 		<div class="row">
 			<div class="col-md-3" th:each="platform : ${ platform }">
 				<a th:href="@{/game-list/{platform}/(platform=${platform.platformName})}"> 
 					<img th:src="@{~/images/{platform}.jpg(platform=${platform.platformName})}" class="w-100">
 				</a>
+				
 			</div>
 		</div>
 	</div>

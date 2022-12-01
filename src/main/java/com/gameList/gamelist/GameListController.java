@@ -130,6 +130,7 @@ public class GameListController{
 		
 		return "platforms";
 	}
+	
 	@GetMapping("/list")
 	public String listGames(Model theModel) {
 		List<GameList> theGamelist = gameList.findAll();
@@ -161,5 +162,62 @@ public class GameListController{
 		theModel.addAttribute("xbox",  xbox_list);
 		return"xbox";
 	}
+	
+	@GetMapping("/viewGameList")
+	public String viewGameList(Model theModel) {
+		
+		
+		//Model attribute for data binding
+		GameList theGamelist = new GameList();
+		
+		theModel.addAttribute("gameList", theGamelist);
+		
+		
+		return "game-list/list-GameList";
+		
+	}
+	
+	@GetMapping("/viewNintendo")
+	public String viewNintendo(Model theModel) {
+		
+		
+		//Model attribute for data binding
+		GameList theGamelist = new GameList();
+		
+		theModel.addAttribute("gameList", theGamelist);
+		
+		
+		return "game-list/list-nintendo";
+		
+	}
+	
+	@GetMapping("/viewPc")
+	public String viewPc(Model theModel) {
+		
+		
+		//Model attribute for data binding
+		GameList theGamelist = new GameList();
+		
+		theModel.addAttribute("gameList", theGamelist);
+		
+		
+		return "game-list/list-pc";
+		
+	}
+	
+	@GetMapping("/viewPlayStation")
+	public String viewPlayStation(Model theModel) {
+		
+		
+		//Model attribute for data binding
+		GameList theGamelist = new GameList();
+		
+		theModel.addAttribute("gameList", theGamelist);
+		
+		
+		return "game-list/list-playstation";
+		
+	}
+
 	
 }
